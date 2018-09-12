@@ -17,7 +17,7 @@ public class Book {
     @Column(name = "release_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date releaseDate;
-    /*@JoinColumn(name = "cover_image")
+    @JoinColumn(name = "cover_image")
     @OneToOne(cascade = CascadeType.MERGE)
     private UploadFile coverImage;
     @OneToOne(cascade = CascadeType.MERGE)
@@ -25,7 +25,7 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "book_category", joinColumns = {@JoinColumn(name = "book_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")})
-    private Set<Locale.Category> categories;*/
+    private Set<Locale.Category> categories;
 
     public Book() {
     }
@@ -66,7 +66,7 @@ public class Book {
         this.releaseDate = releaseDate;
     }
 
-    /*public UploadFile getCoverImage() {
+    public UploadFile getCoverImage() {
         return coverImage;
     }
 
@@ -88,5 +88,5 @@ public class Book {
 
     public void setCategories(Set<Locale.Category> categories) {
         this.categories = categories;
-    }*/
+    }
 }
