@@ -14,6 +14,10 @@ public class Category {
     @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
     private List<Book> books;
 
+    public Category(Long id){
+        this.id = id;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
