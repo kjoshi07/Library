@@ -1,8 +1,6 @@
 package com.github.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -11,6 +9,7 @@ public class Category {
     @Id
     private Long id;
     private String name;
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
     private List<Book> books;
 
     public void setId(Long id) {

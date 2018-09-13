@@ -2,7 +2,6 @@ package com.github.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Set;
 
 @Entity
@@ -25,7 +24,7 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "book_category", joinColumns = {@JoinColumn(name = "book_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")})
-    private Set<Locale.Category> categories;
+    private Set<Category> categories;
 
     public Book() {
     }
@@ -82,11 +81,11 @@ public class Book {
         this.content = content;
     }
 
-    public Set<Locale.Category> getCategories() {
+    public Set<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(Set<Locale.Category> categories) {
+    public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
 }

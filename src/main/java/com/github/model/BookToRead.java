@@ -1,15 +1,15 @@
 package com.github.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "book_to_read")
 public class BookToRead {
     @Id
     private Long id;
+    @OneToOne(cascade = CascadeType.MERGE)
     private Book book;
+    @OneToOne(cascade = CascadeType.MERGE)
     private User user;
 
     public void setId(Long id) {
