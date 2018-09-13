@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "read_book")
 public class ReadBook {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne(cascade = CascadeType.MERGE)
     private Book book;

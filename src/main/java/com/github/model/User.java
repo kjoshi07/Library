@@ -1,22 +1,38 @@
 package com.github.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
+    @Column(length = 30, unique = true)
     private String username;
+    @Size(min = 4, max = 100)
+    @NotEmpty
     private String password;
+    @Column(name = "name")
+    @NotEmpty
     private String firstName;
+    @Column(name = "surname")
     private String lastName;
+    @NotEmpty
     private String email;
     private boolean enabled;
+    @Column(name = "reset_password_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date lastPasswordReset;
+    @ManyToMany
+    @JoinTable(name = "user_authority", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+    inverseJoinColumns = {@JoinColumn(name = "authority_id", referencedColumnName = "id")})
+    private List<Authority> authorities;
 
     public void setId(Long id) {
         this.id = id;
@@ -80,5 +96,13 @@ public class User {
 
     public void setLastPasswordReset(Date lastPasswordReset) {
         this.lastPasswordReset = lastPasswordReset;
+    }
+
+    public List<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
     }
 }

@@ -1,14 +1,14 @@
 package com.github.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "upload_file")
 public class UploadFile {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "file_name")
     private String fileName;
     private byte[] data;
 
