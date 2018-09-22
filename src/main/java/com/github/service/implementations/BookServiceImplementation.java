@@ -18,9 +18,9 @@ import java.util.stream.Collectors;
 public class BookServiceImplementation implements BookService {
     @Autowired
     private BookRepository bookRepository;
-    @Autowired(required = false)
+    @Autowired
     private UploadFileService uploadFileService;
-    @Autowired(required = false)
+    @Autowired
     private ModelMapper modelMapper;
 
     /*@Autowired

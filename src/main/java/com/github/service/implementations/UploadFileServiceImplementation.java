@@ -15,7 +15,7 @@ import java.util.Optional;
 public class UploadFileServiceImplementation implements UploadFileService {
     @Autowired
     private UploadFileRepository uploadFileRepository;
-    @Autowired(required = false)
+    @Autowired
     private ModelMapper modelMapper;
 
     /*@Autowired

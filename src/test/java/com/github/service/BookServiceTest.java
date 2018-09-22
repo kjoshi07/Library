@@ -8,8 +8,6 @@ import com.github.service.implementations.BookServiceImplementation;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -24,16 +22,13 @@ import static org.junit.Assert.assertFalse;
 public class BookServiceTest {
     @Autowired
     private BookRepository bookRepository;
-    @Mock
     private AddBookResource addBookResource;
     private BookService bookService;
 
     @Before
     public void setup(){
-        MockitoAnnotations.initMocks(this);
-
         bookService = new BookServiceImplementation();
-        //addBookResource = new AddBookResource("Title", "Description");
+        addBookResource = new AddBookResource("Title", "Description");
     }
 
     @Test
