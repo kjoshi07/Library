@@ -14,19 +14,22 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-@Service
+@Service("bookService")
 public class BookServiceImplementation implements BookService {
+    @Autowired
     private BookRepository bookRepository;
+    @Autowired(required = false)
     private UploadFileService uploadFileService;
+    @Autowired(required = false)
     private ModelMapper modelMapper;
 
-    @Autowired
+    /*@Autowired
     public BookServiceImplementation(BookRepository bookRepository, UploadFileService uploadFileService,
                                      ModelMapper modelMapper){
         this.bookRepository = bookRepository;
         this.uploadFileService = uploadFileService;
         this.modelMapper = modelMapper;
-    }
+    }*/
 
     @Override
     public void addBook(AddBookResource addBookResource) {

@@ -11,16 +11,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-@Service
+@Service("uploadFileService")
 public class UploadFileServiceImplementation implements UploadFileService {
+    @Autowired
     private UploadFileRepository uploadFileRepository;
+    @Autowired(required = false)
     private ModelMapper modelMapper;
 
-    @Autowired
+    /*@Autowired
     public UploadFileServiceImplementation(UploadFileRepository uploadFileRepository, ModelMapper modelMapper){
         this.uploadFileRepository = uploadFileRepository;
         this.modelMapper = modelMapper;
-    }
+    }*/
 
     @Transactional
     @Override
